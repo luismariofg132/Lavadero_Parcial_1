@@ -261,11 +261,7 @@ public class MainMenu extends javax.swing.JFrame {
                         Ganancia += vehiculo.getGanancia();
                         Costo += vehiculo.getCosto();
                         Total = Ganancia - Costo;
-                        
-                        System.out.print("Ganancia: " + vehiculo.getGanancia() + " ");
-                        System.out.print("Costo: " + vehiculo.getCosto() + " ");
-                        System.out.print("Total: " + Total + " ");
-                        
+                                             
                         if (vehiculo.getVehiculo() == tipoVehiculo.MOTO){
                             cantMotos += 1;
                         }
@@ -291,7 +287,7 @@ public class MainMenu extends javax.swing.JFrame {
         lblCantCarros.setText(String.valueOf(cantCarros));
         lblGanancias.setText(colombiaCurrencyFormat.format(Ganancia));
         lblCostos.setText(colombiaCurrencyFormat.format(Costo));
-        lblTotal.setText(colombiaCurrencyFormat.format(Costo));
+        lblTotal.setText(colombiaCurrencyFormat.format(Total));
     };
     
     private void btnUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnoActionPerformed
