@@ -15,6 +15,15 @@ public class Vehiculo {
     private boolean finalizado;
     private double ganancia;
     private double costo;
+    private boolean isActive = true;
+
+    public boolean IsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
     public double getGanancia() {
         return ganancia;

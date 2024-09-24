@@ -37,6 +37,7 @@
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnInhabilitar" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnFinalizar" alignment="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -59,6 +60,7 @@
                                   <Component id="txtPropietario" pref="120" max="32767" attributes="0"/>
                                   <Component id="btnCancelar" alignment="0" pref="120" max="32767" attributes="0"/>
                                   <Component id="btnEliminar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnHabilitar" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <Component id="radioMasaje" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -111,7 +113,12 @@
                   <Component id="btnFinalizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnInhabilitar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHabilitar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -225,6 +232,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnInhabilitar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="INHABILITAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInhabilitarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnHabilitar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="HABILITAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHabilitarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -33,6 +33,19 @@ public class ServiceOptions extends javax.swing.JFrame {
     }
     
     private void showInformation() {
+        if(!this.infoVehiculo.IsActive()){
+               radioCarro.setEnabled(false);
+               radioMoto.setEnabled(false);
+               radioNormal.setEnabled(false);
+               radioPremiun.setEnabled(false);
+               radioPresidencial.setEnabled(false);
+               radioMasaje.setEnabled(false);
+               txtPlaca.setEnabled(false);
+               txtPropietario.setEnabled(false);
+               btnAceptar.setEnabled(false);
+               btnCancelar.setEnabled(false);
+        }
+        
         if (this.infoVehiculo != null && this.infoVehiculo.getVehiculo() != null){
             if (this.infoVehiculo.getVehiculo() == tipoVehiculo.CARRO) {
                 radioCarro.setSelected(true);
@@ -64,17 +77,19 @@ public class ServiceOptions extends javax.swing.JFrame {
             
             if (this.infoVehiculo.getPropietario() != null){
                 txtPropietario.setText(this.infoVehiculo.getPropietario());
-            }
+            }       
         }
     }
     
     private void handleButtons(){
         if (!(this.infoVehiculo != null && this.infoVehiculo.getVehiculo() != null)){
             btnFinalizar.setEnabled(false);
-            btnEliminar.setEnabled(false);                     
+            btnEliminar.setEnabled(false);
         } else {
             btnAceptar.setEnabled(false);
             btnCancelar.setEnabled(false);
+            btnHabilitar.setEnabled(false);
+            btnInhabilitar.setEnabled(false);
         }
     }
 
@@ -144,6 +159,8 @@ public class ServiceOptions extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnFinalizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnInhabilitar = new javax.swing.JButton();
+        btnHabilitar = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -239,6 +256,20 @@ public class ServiceOptions extends javax.swing.JFrame {
             }
         });
 
+        btnInhabilitar.setText("INHABILITAR");
+        btnInhabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInhabilitarActionPerformed(evt);
+            }
+        });
+
+        btnHabilitar.setText("HABILITAR");
+        btnHabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHabilitarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -250,6 +281,7 @@ public class ServiceOptions extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnInhabilitar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnFinalizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -268,7 +300,8 @@ public class ServiceOptions extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(txtPropietario, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                     .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnHabilitar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(radioMasaje, javax.swing.GroupLayout.Alignment.LEADING)))))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -307,7 +340,11 @@ public class ServiceOptions extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFinalizar)
                     .addComponent(btnEliminar))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInhabilitar)
+                    .addComponent(btnHabilitar))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -393,6 +430,16 @@ public class ServiceOptions extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnInhabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInhabilitarActionPerformed
+        this.infoVehiculo.setIsActive(false);
+        dispose();
+    }//GEN-LAST:event_btnInhabilitarActionPerformed
+
+    private void btnHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarActionPerformed
+        this.infoVehiculo.setIsActive(true);
+        dispose();
+    }//GEN-LAST:event_btnHabilitarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -433,6 +480,8 @@ public class ServiceOptions extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnFinalizar;
+    private javax.swing.JButton btnHabilitar;
+    private javax.swing.JButton btnInhabilitar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
